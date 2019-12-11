@@ -1,0 +1,17 @@
+<div *ngIf="heroes.length == 0">
+	<h4 class="alert alert-info">
+		No se encontraron resultados <span *ngIf="termino.length > 0">por: {{ termino }}</span>
+	</h4>
+</div>
+<div *ngIf="heroes.length > 0">
+	<h1 class="animated fadeIn fast">
+		Resultados por: {{ termino }}
+	</h1>
+
+	<hr>
+
+	<div class="card-columns animated fadeIn">
+		<app-heroe-tarjeta (heroeSeleccionado)="verHeroe(i)" [heroe]="heroe" [index]="heroe.idx" *ngFor="let heroe of heroes;"></app-heroe-tarjeta>
+	</div>
+
+</div>
